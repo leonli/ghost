@@ -9,11 +9,6 @@ DESCRIPTION
   default = "~/.ssh/ghost.pub"
 }
 
-variable "hosted_zone_id" {
-  description = "The zone id of the application"
-  default = "Z3OKXUGAIRMFVA"
-}
-
 variable "key_name" {
   description = "Desired name of AWS key pair"
   default     = "ghost"
@@ -61,4 +56,14 @@ variable "asg_max" {
 variable "asg_desired" {
   description = "Desired numbers of servers in ASG"
   default     = "3"
+}
+
+variable "hosted_zone_id" {
+  description = "The zone id of the application"
+  default     = "Z3OKXUGAIRMFVA"
+}
+
+variable "ghost_domain" {
+  description = "The domain of the ghost"
+  default     = "ghost.awsrun.com"
 }

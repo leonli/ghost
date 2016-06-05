@@ -1,6 +1,6 @@
 resource "aws_route53_record" "ghost" {
   zone_id = "${var.hosted_zone_id}"
-  name = "ghost.awsrun.com"
+  name = "${var.ghost_domain}"
   type = "A"
 
   alias {
