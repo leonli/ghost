@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/node_home
+hooks:
+  ApplicationStop:
+    - location: scripts/deregister_from_elb.sh
+      runas: root
+    - location: scripts/stop.sh
+      runas: root
+  AfterInstall:
+    - location: scripts/prepare.sh
+      runas: root
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 3000
+      runas: root
+    - location: scripts/register_with_elb.sh
+      timout: 300
+      runas: root
