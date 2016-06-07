@@ -23,7 +23,7 @@ ELB_LIST="ghost-elb"
 export PATH="$PATH:/usr/bin:/usr/local/bin"
 
 # If true, all messages will be printed. If false, only fatal errors are printed.
-DEBUG=false
+DEBUG=true
 
 # Number of times to check for a resouce to be in the desired state.
 WAITER_ATTEMPTS=60
