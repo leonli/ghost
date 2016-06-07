@@ -91,6 +91,13 @@ resource "aws_launch_configuration" "ghost_lc" {
   instance_type = "${var.instance_type}"
   iam_instance_profile = "${aws_iam_instance_profile.codedeploy_profile.id}"
 
+  # block device
+  root_block_device {
+    volume_type = "io1"
+    volume_size = "256"
+    iops = "300"
+  }
+
   # Security group
   security_groups = ["${aws_security_group.ghost_instances_sg.id}"]
   user_data       = "${file("userdata.sh")}"

@@ -15,7 +15,7 @@ variable "key_name" {
 }
 
 variable "instance_type" {
-  default     = "m4.large"
+  default     = "m4.xlarge"
   description = "AWS instance type"
 }
 
@@ -74,7 +74,7 @@ variable "identifier" {
 }
 
 variable "storage" {
-  default     = "128"
+  default     = "10"
   description = "Storage size in GB"
 }
 
@@ -92,7 +92,7 @@ variable "engine_version" {
 }
 
 variable "instance_class" {
-  default     = "db.t2.micro"
+  default     = "db.m3.xlarge"
   description = "Instance class"
 }
 
