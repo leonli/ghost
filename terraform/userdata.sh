@@ -1,6 +1,7 @@
 #!/bin/bash -v
+apt-get -y update
 curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs
+apt-get install -y nodejs
 npm install -g pm2
 mkdir /opt/node_home
 chown ubuntu:ubuntu /opt/node_home
