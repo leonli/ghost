@@ -22,7 +22,7 @@ config = {
         },
 
         server: {
-            host: '0.0.0.0',
+            host: '127.0.0.1',
             port: '2368'
         }
     },
@@ -61,7 +61,7 @@ config = {
         // Can be host & port (default), or socket
         server: {
             // Host to be passed to node's `net.Server#listen()`
-            host: '0.0.0.0',
+            host: '127.0.0.1',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: '2368'
         },
