@@ -16,7 +16,7 @@ resource "aws_route" "internet_access" {
 }
 
 # Create 3 subnets within the VPC for the availability_zone
-resource "aws_subnet" "apps_public_subnet_1" {
+resource "aws_subnet" "apps_public_subnet" {
   # We will create the definied length of the vailability zone for each subnet
   count                   = "${length(split(",", lookup(var.azs, var.region)))}"
   vpc_id                  = "${aws_vpc.apps.id}"
