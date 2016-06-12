@@ -28,8 +28,8 @@ config = {
     //},
 
     production: {
-      url: 'http://${ghost_domain}',
-      mail: {}
+      url: '//${ghost_domain}',
+      mail: {},
       database: {
         client: 'mysql',
           connection: {
