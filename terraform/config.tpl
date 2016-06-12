@@ -10,22 +10,43 @@ config = {
     // ### Production
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
-    production: {
-        url: 'http://my-ghost-blog.com',
-        mail: {},
-        database: {
-            client: 'sqlite3',
-            connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
-            },
-            debug: false
-        },
+    //production: {
+        //url: 'http://my-ghost-blog.com',
+        //mail: {},
+        //database: {
+            //client: 'sqlite3',
+            //connection: {
+                //filename: path.join(__dirname, '/content/data/ghost.db')
+            //},
+            //debug: false
+        //},
 
-        server: {
-            host: '0.0.0.0',
-            port: '2368'
-        }
+        //server: {
+            //host: '0.0.0.0',
+            //port: '2368'
+        //}
+    //},
+
+    production: {
+      url: 'http://${ghost_domain}',
+      mail: {}
+      database: {
+        client: 'mysql',
+          connection: {
+              host     : '${rds_address}',
+              user     : '${db_username}',
+              password : '${db_password}',
+              database : '${db_name}',
+              charset  : 'utf8'
+          }
+      },
+      server: {
+          host: '0.0.0.0',
+          port: '2368'
+      },
+      logging: false
     },
+
 
     // ### Development **(default)**
     development: {

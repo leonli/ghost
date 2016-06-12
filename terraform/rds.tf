@@ -29,20 +29,25 @@ resource "aws_subnet" "ghost_db_subnet" {
 }
 
 # Define RDS db instance
-/*resource "aws_db_instance" "ghost_rds" {*/
-  /*depends_on             = ["aws_security_group.ghost_db_sg"]*/
-  /*identifier             = "${var.identifier}"*/
-  /*allocated_storage      = "${var.storage}"*/
-  /*engine                 = "${var.engine}"*/
-  /*engine_version         = "${lookup(var.engine_version, var.engine)}"*/
-  /*instance_class         = "${var.instance_class}"*/
-  /*name                   = "${var.db_name}"*/
-  /*username               = "${var.db_username}"*/
-  /*password               = "${var.db_password}"*/
-  /*vpc_security_group_ids = ["${aws_security_group.ghost_db_sg.id}"]*/
-  /*db_subnet_group_name   = "${aws_db_subnet_group.rds_subnet_group.id}"*/
-  /*multi_az               = true*/
-/*}*/
+resource "aws_db_instance" "ghost_rds" {
+  depends_on             = ["aws_security_group.ghost_db_sg"]
+  identifier             = "${var.identifier}"
+  allocated_storage      = "${var.storage}"
+  engine                 = "${var.engine}"
+  engine_version         = "${lookup(var.engine_version, var.engine)}"
+  instance_class         = "${var.instance_class}"
+  name                   = "${var.db_name}"
+  username               = "${var.db_username}"
+  password               = "${var.db_password}"
+  vpc_security_group_ids = ["${aws_security_group.ghost_db_sg.id}"]
+  db_subnet_group_name   = "${aws_db_subnet_group.rds_subnet_group.id}"
+  multi_az               = true
+
+  provisioner "local-exec" {
+      command = "echo ${template_file.config_file.rendered} > ../config.js"
+  }
+
+}
 
 resource "aws_db_subnet_group" "rds_subnet_group" {
   name        = "ghost_rds_subnet_group"
