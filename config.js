@@ -28,8 +28,8 @@ config = {
     //},
 
     production: {
-      url: 'http://ghost.awsrun.com',
-      mail: {}
+      url: '//ghost.awsrun.com',
+      mail: {},
       database: {
         client: 'mysql',
           connection: {
