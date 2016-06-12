@@ -43,10 +43,6 @@ resource "aws_db_instance" "ghost_rds" {
   db_subnet_group_name   = "${aws_db_subnet_group.rds_subnet_group.id}"
   multi_az               = true
 
-  provisioner "local-exec" {
-      command = "echo ${template_file.config_file.rendered} > ../config.js"
-  }
-
 }
 
 resource "aws_db_subnet_group" "rds_subnet_group" {
