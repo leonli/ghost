@@ -15,7 +15,7 @@ variable "key_name" {
 }
 
 variable "instance_type" {
-  default     = "m4.xlarge"
+  default     = "m4.large"
   description = "AWS instance type"
 }
 
@@ -92,7 +92,7 @@ variable "engine_version" {
 }
 
 variable "instance_class" {
-  default     = "db.m3.xlarge"
+  default     = "db.t2.large"
   description = "Instance class"
 }
 
